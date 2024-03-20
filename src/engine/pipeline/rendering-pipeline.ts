@@ -7,6 +7,8 @@ import { Vec4 } from "../../base/math/vec4";
 import { Rasterizer } from "../rasterizer/rasterizer";
 import { Mat4 } from "../../base/math/mat4";
 
+// read
+
 /**
  * 渲染管线
  */
@@ -91,14 +93,9 @@ export class RenderingPipeline {
 
             // 光栅化
             for (let i = 0, len = this.rasterizer.length; i < len; i++) {
-                this.rasterizer[i].run(
-                    p0.clone(), p1.clone(), p2.clone(),
-                    v0, v1, v2,
-                    this.fs, glData,
-                );
+                this.rasterizer[i].run(p0.clone(), p1.clone(), p2.clone(), v0, v1, v2, this.fs, glData);
             }
         }
-
     }
 
     /**

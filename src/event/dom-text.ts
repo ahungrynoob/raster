@@ -6,6 +6,6 @@ export class DomText {
     }
 
     private static flashRenderingTime(time: number): void {
-        document.getElementById("rendering-time").textContent = `渲染耗时: ${time}ms`;
+        document.getElementById("rendering-time").textContent = `渲染帧数: ${Math.round(1000 / time)}`;
     }
 }

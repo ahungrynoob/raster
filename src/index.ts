@@ -28,9 +28,7 @@ import { RasterizerDepth } from "./engine/rasterizer/rasterizer-depth";
 import { Mat4 } from "./base/math/mat4";
 import { Scene13 } from "./priview/scene13/scene13";
 
-
 async function run() {
-
     /**
      * 创建渲染管线
      */
@@ -60,10 +58,8 @@ async function run() {
     CanvasRasterizerMapping.bind(triangle, rasterizerTriangle);
     pipeline.rasterizer.push(rasterizerTriangle);
 
-
-    const scene = await Scene13.creat(width, height);
+    const scene = await Scene01.creat(width, height);
     const camera = scene.getCamera();
-
 
     //glData
     const glData = new GlData();
@@ -89,8 +85,6 @@ async function run() {
     };
 
     requestAnimationFrame(renderOnce);
-
-
 }
 
 function render(scene: Scene, glData: GlData, pipeline: RenderingPipeline): void {
@@ -141,7 +135,6 @@ function render(scene: Scene, glData: GlData, pipeline: RenderingPipeline): void
          */
         pipeline.run(node.getVBO(), node.getIndices(), glData);
     }
-
 }
 
 run();
